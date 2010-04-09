@@ -6,7 +6,7 @@ parse: example.cup
 	$(JAVA) -classpath $(CLASSPATH) java_cup.Main example.cup
 
 lex: example.lex
-	$(JAVA) JLex.Main spl_lex.lex
+	$(JAVA) JLex.Main example.lex
 	mv example.lex.java Yylex.java
 
 build: sym.java parser.java Yylex.java
@@ -22,6 +22,9 @@ all:
 
 run:
 	$(JAVA) -classpath $(CLASSPATH) parser
+
+test:
+	$(JAVA) -classpath $(CLASSPATH) parser < test.pl
 
 clean:
 	-rm *.class

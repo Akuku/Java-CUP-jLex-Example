@@ -3,7 +3,6 @@ import java_cup.runtime.Symbol;
 %cup
 %%
 
-% keywords
 "var"			{return new Symbol(sym.VAR); }
 "begin"			{return new Symbol(sym.BEGIN); }
 "end"			{return new Symbol(sym.END); }
@@ -14,7 +13,6 @@ import java_cup.runtime.Symbol;
 "odd"			{return new Symbol(sym.ODD); }
 "print"			{return new Symbol(sym.PRINT); }
 
-% condition ops
 "="				{return new Symbol(sym.EQ); }
 "#"				{return new Symbol(sym.NEQ); }
 "<"				{return new Symbol(sym.LT); }
@@ -22,7 +20,6 @@ import java_cup.runtime.Symbol;
 ">"				{return new Symbol(sym.GT); }
 ">="			{return new Symbol(sym.GTE); }
 
-% misc symbols
 "("				{return new Symbol(sym.LPAREN); }
 ")"				{return new Symbol(sym.RPAREN); }
 ","				{return new Symbol(sym.COMMA); }
@@ -34,7 +31,6 @@ import java_cup.runtime.Symbol;
 "/"				{return new Symbol(sym.DIV); }
 "."				{return new Symbol(sym.PERIOD); }
 
-% regex
 [0-9]+			{return new Symbol(sym.INT, new Integer(yytext())); }
 [a-zA-Z]+ 		{return new Symbol(sym.ID, yytext()); }
 

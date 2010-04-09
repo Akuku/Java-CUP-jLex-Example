@@ -2,11 +2,6 @@ import java_cup.runtime.*;
 import java.util.*;
 
 action code {:
-	/* code inserted into CUP$actions class
-	 * it is used by the code embedded the grammar */
-
-	/* hm is used to store and retrieve values of variables */
-	//public HashMap hm = new HashMap();
 :}
 
 parser code {:
@@ -44,7 +39,7 @@ block ::=
 
 var_lst ::=
 		  VAR ID:i
-		  	{: RESULT = new VarList(i); :}
+		  	{: RESULT = new VarLst(i); :}
 		| var_lst:vl COMMA ID:i
 			{: vl.add(i); RESULT = vl; :}
 		;
@@ -103,9 +98,9 @@ term ::=
 		  factor:f
 		  	{: RESULT = f; :}
 		| term:t MULT factor:f
-			{: RESULT = MultExpr(t,f); :}
+			{: RESULT = new MultExpr(t,f); :}
 		| term:t DIV factor:f
-			{: RESULT = DivExpr(t,f); :}
+			{: RESULT = new DivExpr(t,f); :}
 		;
 
 factor ::=
