@@ -1,3 +1,6 @@
+// Copyright (c) 2010 Gavin Harrison
+// See LICENSE for GPLv3 Terms
+
 import java.util.*;
 
 interface Expr { int run(HashMap<String,Integer> hm); }
