@@ -2,6 +2,11 @@ JAVAC = javac
 JAVA = java
 CLASSPATH = . 
 
+init:
+	$(JAVAC) JLex/*.java
+	$(JAVAC) java_cup/runtime/*.java
+	$(JAVAC) java_cup/*.java
+
 parse: example.cup
 	$(JAVA) -classpath $(CLASSPATH) java_cup.Main example.cup
 
@@ -31,3 +36,12 @@ clean:
 	-rm Yylex.java
 	-rm parser.java
 	-rm sym.java
+
+vclean:
+	-rm *.class
+	-rm Yylex.java
+	-rm parser.java
+	-rm sym.java
+	-rm java_cup/*.class
+	-rm java_cup/runtime/*.class
+	-rm JLex/*.class
